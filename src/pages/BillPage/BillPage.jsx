@@ -96,8 +96,13 @@ export default class BillPage extends Component {
       })
   }
 
+  
   render() {
-      return(
+    if (this.state.bill.summary == "") {
+      this.state.bill.summary = "A summary is not yet available.";
+    }
+
+    return(
           <div className='bill__container'>
               <h1 align='center'>Bill Information</h1>
               <DetailsCard
@@ -116,7 +121,7 @@ export default class BillPage extends Component {
                 sponsorParty= {this.state.bill.sponsor_party}
               />
               <AdditionalInfoCard
-                congress_govLink=<a href= {this.state.bill.congressdotgov_url}>{this.state.bill.congressdotgov_url}</a>
+                congress_govLink= <a href= {this.state.bill.congressdotgov_url}>{this.state.bill.congressdotgov_url}</a>
               />
           </div>
 

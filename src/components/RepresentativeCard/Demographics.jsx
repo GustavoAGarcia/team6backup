@@ -425,8 +425,9 @@ export default class Demographics extends Component
         return(
 
         <div className = 'graphCard'>
+          
+          <div className = 'dataContainer'>
           <h4>Demographics Representing </h4>
-          <div className = 'demographics_container'>
 		  <ul class = "demographicsList">
             <li>Total Population: {numberWithCommas(stripNonNumber(this.state.totalPop[1][0]))} </li>
             <li>Male Population: {numberWithCommas(stripNonNumber(this.state.malePop[1][0] ))}</li>
@@ -438,7 +439,7 @@ export default class Demographics extends Component
             <li>Indian/Native Alaskan: {newarr[4]}%</li>
             <li>Pacific Islander/Hawaiian: {newarr[5]}%</li>
             <li>other: {newarr[6]}%</li>
-			</ul>
+			</ul>  
           </div>
           <div className='graphContainer'>
             <RadialChart

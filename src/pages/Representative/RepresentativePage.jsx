@@ -217,9 +217,13 @@ export default class Representative extends Component {
       {
         return "Democrat";
       }
-      else{
-        return "Republican"
+	  
+      else if(rep[0].current_party == "R"){
+        return "Republican";
       }
+	  else{
+		  return "Independent";
+	  }
       
     }
     getState()

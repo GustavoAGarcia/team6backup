@@ -379,8 +379,9 @@ export default class Demographics extends Component
         var newarr = this.getPercentRace();
         return(
         
-        <div className = 'listed-rep__container'> 
+        <div className = 'demographics_container' > 
         <h4>Demographics Representing </h4>
+        <ul class = "demographicsList">
         <li>Total Population: {numberWithCommas(stripNonNumber(this.state.totalPop[1][0]))} </li>
         <li>Male Population: {numberWithCommas(stripNonNumber(this.state.malePop[1][0] ))}</li>
         <li>Female Population: {numberWithCommas(stripNonNumber(this.state.femalePop[1][0] ) )}</li>
@@ -390,11 +391,10 @@ export default class Demographics extends Component
         <li>Asian: {newarr[2]}%</li>
         <li>Indian/Native Alaskan: {newarr[3]}%</li>
         <li>Pacific Islander/Hawaiian: {newarr[4]}%</li>
-        <li>other: {newarr[5]}%</li>
+        <li>Other: {newarr[5]}%</li>
         
-        
-        
-        </div>
+        </ul>
+		</div>
         )}
     }
 }

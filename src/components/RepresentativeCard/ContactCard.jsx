@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import './RepresentativeCard.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 export default class ContactCard extends Component{
     constructor(props) { 
         super(props) 
-        //format for social media list. [youtube,twitter,facebook]
+    
         this.contacts = {
             contacts: this.props.contacts
         }
@@ -70,7 +71,7 @@ export default class ContactCard extends Component{
         return (
             <ul>
           
-           {this.props.socialmedia.map((item,index) => <a href = {this.linkUrl(item,index)} >{this.displayMedia(index)}</a>)}
+           {this.props.socialmedia.map((item,index) => <a class = "Externallink" href = {this.linkUrl(item,index)} >{this.displayMedia(index)}</a>)}
           </ul>
         )
     }
@@ -78,10 +79,10 @@ export default class ContactCard extends Component{
     {
         if(this.props.contacts.length > 0)
         {
-           return( <ul>
+           return( <ul class = "contactList">
         <li>Office: {this.props.contacts[0]}</li>
         <li>Phone: {this.props.contacts[1]}</li>
-        <li>Official Webpage: <a href = {this.props.contacts[2]}>{this.props.contacts[2]}</a></li>
+        <li>Official Webpage: <a class = "Externallink" href = {this.props.contacts[2]}>{this.props.contacts[2]}</a></li>
             </ul>);
         }
         else{
@@ -94,41 +95,18 @@ export default class ContactCard extends Component{
     {
         return(
             
-            <div className = 'listed-rep__container'> 
+            <div className = 'contact_container'> 
             <h4>Contact:</h4>
            {this.displayContacts()}
-                <h4>Social Media:</h4>
-                <ul>
-                <li>   <a href = {this.getTwitter()}>Twitter</a></li>
-                <li>   <a href = {this.getFaceBook()}>FaceBook</a></li>
-           <li>   <a href = {this.getYoutube()}>Youtube</a></li> 
+                <h4 >Social Media:</h4>
+                <ul class = "contactList">
+                <li>   <a href = {this.getTwitter()} className = 'Externallink'>Twitter</a></li>
+                <li>   <a href = {this.getFaceBook()} className = 'Externallink' >FaceBook</a></li>
+           <li>   <a href = {this.getYoutube()} className = 'Externallink'>Youtube</a></li> 
             </ul>
             </div>
            
             )
-        /*
-        return(
-        <Router>
-        <div className = 'listed-rep__container'> 
-        <h4>Contact:</h4>
-       {this.displayContacts()}
-            <h4>Social Media:</h4>
-            <ul>
-       <li><Link to='/twitter' > Twitter</Link></li> 
-       <li> <Link to='/facebook' > FaceBook</Link></li> 
-       <li>   <Link to='/youtube' > Youtube</Link></li> 
-        </ul>
-        <Switch> 
-            <Route path='/youtube' component={() => { 
-     window.location.href = this.getYoutube(); return null;}}/>
-            <Route path='/youtube' component={() => { 
-     window.location.href = this.getFaceBook(); return null;}}/>
-            <Route path='/twitter' component={() => { 
-     window.location.href = this.getTwitter(); return null;}}/>
-            
-        </Switch>
-        </div>
-        </Router>
-        )*/
+
     }
 }

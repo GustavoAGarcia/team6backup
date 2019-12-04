@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 import BillPage from '../../pages/BillPage/BillPage.jsx'
 import PropublicaCaller from '../../app/PropublicaCaller';
 export default class recentBillsCard extends Component
@@ -32,11 +32,7 @@ export default class recentBillsCard extends Component
       
       
     }
-        
-      //arr = probublicaHelper.getSingleMember(id).then(result => {
-       //array = result;
-        
-    //})
+
     
       
     
@@ -107,10 +103,10 @@ export default class recentBillsCard extends Component
         var billList = this.state.billList;
         var IDList = this.state.id;
         return(
-          <div className = 'listed-rep__container'> 
+          <div className = 'listed-recentBill__container' > 
           <h4>Last 5 Bills Co-Sponsored</h4>
-          <ol>      
-             {billList.map((bill,index) => <li> <a href = {this.getUrl(index,IDList)} >{bill}</a></li>)}
+          <ol class = "billList">      
+             {billList.map((bill,index) => <li> <a class = "Externallink" href = {this.getUrl(index,IDList)} >{bill}</a></li>)}
           </ol>
           </div>
         )

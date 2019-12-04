@@ -1,0 +1,21 @@
+.nav_bar__container {
+  overflow: hidden;
+  background-color: #0C0D2C;
+}
+.nav_bar__container a, nav-bar__home {
+  float: left;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.nav_bar__container a:hover {
+  background-color: rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+}
+
+.nav-bar__home {
+    color: white;
+}

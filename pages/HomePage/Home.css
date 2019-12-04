@@ -1,0 +1,16 @@
+.home__container {
+    padding: 20px;
+}
+
+.home__title {
+    text-align: left;
+}
+
+.home__directions {
+    margin: 0;
+}
+
+.home__state-search {
+    width: 253px;
+    float: right;
+}

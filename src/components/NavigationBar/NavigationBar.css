@@ -1,6 +1,7 @@
 .nav_bar__container {
   overflow: hidden;
   background-color: #0C0D2C;
+  font-size:19px;
 }
 .nav_bar__container a, nav-bar__home {
   float: left;
@@ -8,7 +9,7 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 28px;
 }
 
 .nav_bar__container a:hover {

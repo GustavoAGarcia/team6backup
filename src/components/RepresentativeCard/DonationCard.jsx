@@ -23,7 +23,8 @@ export default class DonationCard extends Component {
         this.state = {
             receipts:[],
             committeeID:"NULL",
-            donationInfo: ""
+            donationInfo: "",
+            fec_id: props.fec_id
         }
         this.name = {
             name: props.name
@@ -36,34 +37,14 @@ export default class DonationCard extends Component {
     componentDidMount() {
 
         let fecCaller = new FECCaller()
-         fecCaller.getMemberId(this.props.name)
-         .then(id => {
-             fecCaller.getFinanceInformation(id)
-             .then(results => {
-                 this.setState({
-                     donationInfo: results
-                 })
-                 console.log(results)
-             })
-         })
+        fecCaller.getFinanceInformation(this.props.fec_id)
+        .then(results => {
+            this.setState({
+                donationInfo: results
+            })
+        })
     }
-	/*
-    render()
-    {
-        return(
-        <div className = 'campaign_container'>
-            <h4>Campaign Finance </h4>
-			<ul class = "donationList">
-            <li>Individual Contributions: ${numberWithCommas(this.state.donationInfo.individual_contributions)} </li>
-            <li>Campaign Contributions: ${numberWithCommas(this.state.donationInfo.contributions)} </li>
-            <li>Total loans: ${numberWithCommas(this.state.donationInfo.loans)} </li>
-            <li>Receipts: ${numberWithCommas(this.state.donationInfo.receipts)} </li>
-            <li>Disbursements: ${numberWithCommas(this.state.donationInfo.disbursements)} </li>
-			</ul>
-        </div>
 
-        )
-    }*/
 	render()
     {
         const data = [

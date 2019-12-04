@@ -123,12 +123,15 @@ export default class Representative extends Component {
       arr = probublicaHelper.getSingleMember(id).then(result => {
         array = result;
         console.log(result);
+        this.setState({
+            apiCalled:true,
+            representative: array[0]
+          });
     })
     array.push(arr);
     
       console.log(array);
       console.log(arr);
-      this.setState({apiCalled:true});
 
      
      
@@ -324,7 +327,7 @@ export default class Representative extends Component {
           console.log(propsArray[1]);
           return(
             <div className='rep__container'>
-                <RepresentativeCard id = {propsArray[1]} contacts = {this.getContacts()} socialmedia = {this.getSocialMedia()}name = {propsArray[0]} committes = {this.getCommittees()} subcommittes = {this.getSubCommittees()} District = {this.getDistrict()} stateNumber = {this.getStateNum()} usState = {this.getState()} party ={this.getParty()} chamber ={this.getChamber()} gender ={this.getGender()} DOB ={this.getDOB()}  BillList = {TedCruzBills} />
+                <RepresentativeCard id = {propsArray[1]} contacts = {this.getContacts()} socialmedia = {this.getSocialMedia()}name = {propsArray[0]} committes = {this.getCommittees()} subcommittes = {this.getSubCommittees()} District = {this.getDistrict()} stateNumber = {this.getStateNum()} usState = {this.getState()} party ={this.getParty()} chamber ={this.getChamber()} gender ={this.getGender()} DOB ={this.getDOB()}  BillList = {TedCruzBills} representative={this.state.representative}/>
             </div>
         )
         }

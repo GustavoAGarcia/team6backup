@@ -14,6 +14,9 @@ export default class RepresentativeCard extends Component
     constructor(props) { 
         super(props) 
         
+        this.setState({
+            representative: props.representative
+        })
         
         this.state = {
             party: props.state
@@ -99,7 +102,7 @@ export default class RepresentativeCard extends Component
             
             <RecentBillsCard id = {this.props.id} BillList = {this.props.BillList} />
             <Demographics demographicsList = {this.props.demographicsList} State = {this.props.stateNumber} raceList = {this.props.raceList} chamber = {this.props.chamber} District = {this.props.District} />
-            <DonationCard chamber = {this.props.chamber} name = {this.props.name}/> 
+            <DonationCard chamber = {this.props.chamber} name = {this.props.name} fec_id={this.props.representative.roles[0].fec_candidate_id}/> 
             <CommitteCard CommitteeList = {this.props.committes} SubCommitteeList = {this.props.subcommittes} />
             <ContactCard id = {this.props.id} contacts = {this.props.contacts} socialmedia = {this.props.socialmedia} />
         </div>

@@ -110,7 +110,7 @@ export default class TextField extends Component {
       const text = this.state.text;
         return (
         <div className = "text_field__container">
-          <input class="text_field__input" placeholder="Search by name..." value = {text} onChange = {this.ontextChanged} type="text" />
+          <input className="text_field__input" placeholder="Search by name..." value = {text} onChange = {this.ontextChanged} type="text" />
           <div className = "search_results__container">{this.renderSuggestions()}</div>
         </div>
         )

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import RepublicanImage from '../../images/republican_logo.png'
 import DemocratImage from '../../images/democrat_logo.png'
+import usflag from '../../images/usflag.png'
 import RecentBillsCard from '../../components/RepresentativeCard/RecentBillsCard.jsx'
 import Demographics from  '../../components/RepresentativeCard/Demographics.jsx'
 import DonationCard from './DonationCard'
@@ -51,12 +52,18 @@ export default class RepresentativeCard extends Component
     getPartyImage() {
         let partyImage;
         if (this.props.party == 'R') {
-            console.log('here');
+            
             partyImage = <img className='listed-rep__party--logo' src={RepublicanImage} alt=""/>
-        } else {
-            console.log('here2');
+        } 
+		else if(this.props.party == 'D')
+		{
+			
+            
             partyImage = <img className='listed-rep__party--logo' src={DemocratImage} alt=""/>
         }
+		else{
+			partyImage = <img className='listed-rep__party--logo' src={usflag} alt=""/>
+		}
         return partyImage
     }
 
@@ -79,7 +86,7 @@ export default class RepresentativeCard extends Component
         console.log(this.props.id);
         return(
 
-        <div className = 'listed-rep__container'>
+        <div className = 'repCard__container'>
             <h3> Your Representative </h3>    
             {this.getPartyImage()}
             <h3>{this.props.name}</h3>

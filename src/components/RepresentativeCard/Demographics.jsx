@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { RadialChart, Hint } from 'react-vis';
+import './CardWithGraph.css'
 import axios from 'axios'
 import * as constants from '../../app/constants.jsx'
 //https://www2.census.gov/programs-surveys/acs/tech_docs/pums/data_dict/PUMSDataDict13.txt
@@ -364,7 +366,7 @@ export default class Demographics extends Component
         }
         //percentRace = percentages(this.props.raceList);
     }
-    
+    /*
     render()
     {
         if(this.props.District === '00' || this.props.District == '')
@@ -395,6 +397,60 @@ export default class Demographics extends Component
         
         </ul>
 		</div>
+        )}
+    }*/
+	render()
+    {
+        if(this.props.District === '00' || this.props.District == '')
+        {
+            console.log('here333');
+            return (<div></div>)
+        }
+        else{
+
+        console.log(this.props.District);
+        this.buildDemographicsList(this.props.District,this.props.State);
+        this.buildRaceList(this.props.District,this.props.State);
+        var t = this.state.demographicsList[0];
+        var newarr = this.getPercentRace();
+        const data = [
+          {angle: newarr[0], label: 'White', color: 'brown'},
+          {angle: newarr[1], label: 'Black', color: 'orange'},
+          {angle: newarr[2], label: 'Asian', color: 'yellow'},
+          {angle: newarr[3], label: 'Hispanic', color: 'green'},
+          {angle: newarr[4], label: 'Native American', color: 'blue'},
+          {angle: newarr[5], label: 'Hawaiian', color: 'indigo'},
+          {angle: newarr[6], label: 'Other', color: 'violet'},
+        ]
+        return(
+
+        <div className = 'graphCard'>
+          <h4>Demographics Representing </h4>
+          <div className = 'demographics_container'>
+		  <ul class = "demographicsList">
+            <li>Total Population: {numberWithCommas(stripNonNumber(this.state.totalPop[1][0]))} </li>
+            <li>Male Population: {numberWithCommas(stripNonNumber(this.state.malePop[1][0] ))}</li>
+            <li>Female Population: {numberWithCommas(stripNonNumber(this.state.femalePop[1][0] ) )}</li>
+            <li>White: {newarr[0]}% </li>
+            <li>Black: {newarr[1]}%</li>
+            <li>Asian: {newarr[2]}%</li>
+            <li>Hispanic: {newarr[3]}%</li>
+            <li>Indian/Native Alaskan: {newarr[4]}%</li>
+            <li>Pacific Islander/Hawaiian: {newarr[5]}%</li>
+            <li>other: {newarr[6]}%</li>
+			</ul>
+          </div>
+          <div className='graphContainer'>
+            <RadialChart
+              animation
+              data={data}
+              width={350}
+              height={350}
+              showLabels
+              colorType='literal'
+            />
+          </div>
+        </div>
         )}
     }
 }

@@ -80,11 +80,18 @@ export default class DonationCard extends Component {
 
             <h4>Campaign Finance </h4>
             <div className='dataContainer'>
+                <ul className = 'donationList'>
+
+                
               <li>Individual Contributions: ${numberWithCommas(this.state.donationInfo.individual_contributions)} </li>
               <li>Campaign Contributions: ${numberWithCommas(this.state.donationInfo.contributions)} </li>
               <li>Total loans: ${numberWithCommas(this.state.donationInfo.loans)} </li>
               <li>Receipts: ${numberWithCommas(this.state.donationInfo.receipts)} </li>
+             
               <li>Disbursements: ${numberWithCommas(this.state.donationInfo.disbursements)} </li>
+              </ul>
+              
+            
             </div>
             <div className='graphContainer'>
               <RadialChart
@@ -94,7 +101,9 @@ export default class DonationCard extends Component {
                 height={350}
                 showLabels
                 colorType='literal'
-              />
+              /> 
+              
+            
             </div>
         </div>
         )
